@@ -17,10 +17,6 @@ public class Main {
         syncList.add(100);
         syncList.add(200);
 
-        System.out.println("ArrayList: " + arrayList);
-        System.out.println("LinkedList: " + linkedList);
-        System.out.println("SynchronizedList: " + syncList);
-        System.out.println();
 
         System.out.println("arrayList.get(1) = " + arrayList.get(1));
         System.out.println("linkedList.get(2) = " + linkedList.get(2));
