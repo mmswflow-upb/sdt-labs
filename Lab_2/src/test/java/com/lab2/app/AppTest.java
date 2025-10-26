@@ -9,7 +9,6 @@ import com.lab2.app.Ex_1.IntegerAscendingComparator;
 import com.lab2.app.Ex_1.MyCollections;
 import com.lab2.app.Ex_2.PersonalData;
 import com.lab2.app.Ex_2.PersonalDataAdapter;
-import com.lab2.app.Ex_3.Sensor;
 import java.time.LocalDate;
 /**
  * Unit test for simple App.
@@ -30,17 +29,15 @@ public class AppTest {
 
         // Test with my custom integer ascending comparator
         Integer[] arr2 = {5, 2, 8, 1, 9, 3};
-        Integer[] expected2 = {1, 2, 3, 5, 8, 9};
         
         MyCollections.sort(arr2, new IntegerAscendingComparator());
 
         System.out.println("Sorted with IntegerAscendingComparator:");
         printArray(arr2);
-        assertArrayEquals(expected2, arr2);
+        assertArrayEquals(arr2, arr1);
 
         // Compare results - both should produce the same output
-        System.out.println("Both methods produce the same result: " +
-                          java.util.Arrays.equals(arr1, arr2));
+        System.out.println("Both methods produce the same result: ");
         assertArrayEquals(arr1, arr2);
     }
 
