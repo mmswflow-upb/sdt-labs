@@ -1,3 +1,4 @@
+package Ex_1;
 
 public class DBConnection{
     private int id;
