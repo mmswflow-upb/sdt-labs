@@ -6,5 +6,6 @@ public enum CharacterClass {
     ROGUE,
     CLERIC,
     RANGER,
-    BARD
+    BARD,
+    NECROMANCER,
 }
