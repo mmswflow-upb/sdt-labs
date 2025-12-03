@@ -15,54 +15,10 @@ services:
     volumes:
       - sdt-lab5-student-db-data:/var/lib/postgresql/data
 
-  professor-db:
-    image: postgres:16
-    container_name: sdt-lab5-professor-db
-    environment:
-      POSTGRES_DB: professordb
-      POSTGRES_USER: professor
-      POSTGRES_PASSWORD: professor
-    ports:
-      - "5434:5432"
-    networks:
-      - sdt-lab5-net
-    volumes:
-      - sdt-lab5-professor-db-data:/var/lib/postgresql/data
-
-  course-db:
-    image: postgres:16
-    container_name: sdt-lab5-course-db
-    environment:
-      POSTGRES_DB: coursedb
-      POSTGRES_USER: course
-      POSTGRES_PASSWORD: course
-    ports:
-      - "5435:5432"
-    networks:
-      - sdt-lab5-net
-    volumes:
-      - sdt-lab5-course-db-data:/var/lib/postgresql/data
-
-  grading-db:
-    image: postgres:16
-    container_name: sdt-lab5-grading-db
-    environment:
-      POSTGRES_DB: gradingdb
-      POSTGRES_USER: grading
-      POSTGRES_PASSWORD: grading
-    ports:
-      - "5436:5432"
-    networks:
-      - sdt-lab5-net
-    volumes:
-      - sdt-lab5-grading-db-data:/var/lib/postgresql/data
-
   student-service:
     build: ./student-service
     image: sdt-lab5-student-service
     container_name: sdt-lab5-student-service
-    depends_on:
-      - student-db
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://student-db:5432/studentdb
       SPRING_DATASOURCE_USERNAME: student
@@ -73,60 +29,9 @@ services:
     networks:
       - sdt-lab5-net
 
-  professor-service:
-    build: ./professor-service
-    image: sdt-lab5-professor-service
-    container_name: sdt-lab5-professor-service
-    depends_on:
-      - professor-db
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://professor-db:5432/professordb
-      SPRING_DATASOURCE_USERNAME: professor
-      SPRING_DATASOURCE_PASSWORD: professor
-      SERVER_PORT: 8080
-    ports:
-      - "8082:8080"
-    networks:
-      - sdt-lab5-net
-
-  course-service:
-    build: ./course-service
-    image: sdt-lab5-course-service
-    container_name: sdt-lab5-course-service
-    depends_on:
-      - course-db
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://course-db:5432/coursedb
-      SPRING_DATASOURCE_USERNAME: course
-      SPRING_DATASOURCE_PASSWORD: course
-      SERVER_PORT: 8080
-    ports:
-      - "8083:8080"
-    networks:
-      - sdt-lab5-net
-
-  grading-service:
-    build: ./grading-service
-    image: sdt-lab5-grading-service
-    container_name: sdt-lab5-grading-service
-    depends_on:
-      - grading-db
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://grading-db:5432/gradingdb
-      SPRING_DATASOURCE_USERNAME: grading
-      SPRING_DATASOURCE_PASSWORD: grading
-      SERVER_PORT: 8080
-    ports:
-      - "8084:8080"
-    networks:
-      - sdt-lab5-net
-
 networks:
   sdt-lab5-net:
     driver: bridge
 
 volumes:
   sdt-lab5-student-db-data:
-  sdt-lab5-professor-db-data:
-  sdt-lab5-course-db-data:
-  sdt-lab5-grading-db-data:

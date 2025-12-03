@@ -14,7 +14,7 @@
 
     <properties>
         <java.version>21</java.version>
-        <spring.boot.version>3.1.5</spring.boot.version>
+        <spring.boot.version>3.2.0</spring.boot.version>
     </properties>
 
     <!-- Import the Spring Boot BOM instead of using a parent -->
@@ -66,6 +66,16 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <parameters>true</parameters>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>

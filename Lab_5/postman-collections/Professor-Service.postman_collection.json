@@ -6,119 +6,392 @@
 	},
 	"item": [
 		{
-			"name": "Create Professor 1 (John Doe)",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"email\": \"john.doe@example.com\"\n}"
+			"name": "Professors",
+			"item": [
+				{
+					"name": "Create Professor 1 (John Doe)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"email\": \"john.doe@example.com\",\n  \"professorId\": \"P001\",\n  \"department\": \"Computer Science\",\n  \"specialization\": \"Software Engineering\",\n  \"hireDate\": \"2020-01-15\",\n  \"officeLocation\": \"Building A, Room 301\",\n  \"phoneNumber\": \"+40123456700\",\n  \"isActive\": true\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8082/professors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"professors"
+							]
+						}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8082/professors",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8082",
-					"path": [
-						"professors"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Create Professor 2 (Mihai Ionescu)",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"firstName\": \"Mihai\",\n  \"lastName\": \"Ionescu\",\n  \"email\": \"mihai.ionescu@example.com\"\n}"
+				{
+					"name": "Create Professor 2 (Mihai Ionescu)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstName\": \"Mihai\",\n  \"lastName\": \"Ionescu\",\n  \"email\": \"mihai.ionescu@example.com\",\n  \"professorId\": \"P002\",\n  \"department\": \"Computer Science\",\n  \"specialization\": \"Database Systems\",\n  \"hireDate\": \"2019-09-01\",\n  \"officeLocation\": \"Building A, Room 305\",\n  \"phoneNumber\": \"+40123456701\",\n  \"isActive\": true\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8082/professors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"professors"
+							]
+						}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8082/professors",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8082",
-					"path": [
-						"professors"
-					]
+				{
+					"name": "List All Professors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/professors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"professors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Professor by ID (1)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/professors/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"professors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Professor by Email",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/professors/email/john.doe@example.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"professors",
+								"email",
+								"john.doe@example.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Professors by Department",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/professors/department/Computer Science",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"professors",
+								"department",
+								"Computer Science"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Active Professors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/professors/active",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"professors",
+								"active"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Professor 1",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"email\": \"john.doe@example.com\",\n  \"professorId\": \"P001\",\n  \"department\": \"Computer Science\",\n  \"specialization\": \"Software Engineering & AI\",\n  \"hireDate\": \"2020-01-15\",\n  \"officeLocation\": \"Building A, Room 301\",\n  \"phoneNumber\": \"+40123456700\",\n  \"isActive\": true\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8082/professors/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"professors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Professor 2",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/professors/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"professors",
+								"2"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "List All Professors",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8082/professors",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8082",
-					"path": [
-						"professors"
-					]
+			"name": "Course Assignments",
+			"item": [
+				{
+					"name": "Assign Professor 1 to Course 1",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"professorId\": 1,\n  \"courseId\": 1\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8082/assignments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"assignments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assign Professor 2 to Course 2",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"professorId\": 2,\n  \"courseId\": 2\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8082/assignments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"assignments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Assignments by Professor ID (1)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/assignments/professor/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"assignments",
+								"professor",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Assignments by Course ID (1)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/assignments/course/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"assignments",
+								"course",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Assignment Status to COMPLETED",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/assignments/1/status?status=COMPLETED",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"assignments",
+								"1",
+								"status"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "COMPLETED"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Assignment Status to SUSPENDED",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/assignments/2/status?status=SUSPENDED",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"assignments",
+								"2",
+								"status"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "SUSPENDED"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Assignment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/assignments/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"assignments",
+								"2"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get Professor by ID (1)",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8082/professors/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8082",
-					"path": [
-						"professors",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get Professor by ID (2)",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8082/professors/2",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8082",
-					"path": [
-						"professors",
-						"2"
-					]
-				}
-			},
-			"response": []
+			]
 		}
 	]
 }

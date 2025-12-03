@@ -13,3 +13,8 @@ spring:
     properties:
       hibernate:
         format_sql: true
+
+# External service URLs
+services:
+  course:
+    url: ${COURSE_SERVICE_URL:http://course-service:8080}
