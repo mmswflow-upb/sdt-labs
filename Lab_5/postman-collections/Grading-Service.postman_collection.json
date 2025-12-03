@@ -1,0 +1,316 @@
+{
+	"info": {
+		"name": "Grading Service",
+		"description": "Grading service API tests (localhost:8084)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Grade 1 (Student 1, Prof 1, Course 1)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"studentId\": 1,\n  \"professorId\": 1,\n  \"courseId\": 1,\n  \"value\": 9.5\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8084/grades",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"grades"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Grade 2 (Student 1, Prof 2, Course 2)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"studentId\": 1,\n  \"professorId\": 2,\n  \"courseId\": 2,\n  \"value\": 8.75\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8084/grades",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"grades"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Grade 3 (Student 2, Prof 1, Course 1)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"studentId\": 2,\n  \"professorId\": 1,\n  \"courseId\": 1,\n  \"value\": 7.0\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8084/grades",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"grades"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List All Grades",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8084/grades",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"grades"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Grades by Student ID (1)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8084/grades?studentId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"grades"
+					],
+					"query": [
+						{
+							"key": "studentId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Grades by Student ID (2)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8084/grades?studentId=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"grades"
+					],
+					"query": [
+						{
+							"key": "studentId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Grades by Professor ID (1)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8084/grades?professorId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"grades"
+					],
+					"query": [
+						{
+							"key": "professorId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Grades by Professor ID (2)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8084/grades?professorId=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"grades"
+					],
+					"query": [
+						{
+							"key": "professorId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Grades by Course ID (1)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8084/grades?courseId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"grades"
+					],
+					"query": [
+						{
+							"key": "courseId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Grades by Course ID (2)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8084/grades?courseId=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"grades"
+					],
+					"query": [
+						{
+							"key": "courseId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Grade 1 (Set value to 10.0)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"studentId\": 1,\n  \"professorId\": 1,\n  \"courseId\": 1,\n  \"value\": 10.0\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8084/grades/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"grades",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Grades by Student ID (1) - After Update",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8084/grades?studentId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"grades"
+					],
+					"query": [
+						{
+							"key": "studentId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
