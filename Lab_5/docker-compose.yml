@@ -1,15 +1,60 @@
 name: sdt-lab5
 
 services:
+  eureka-server:
+    build: ./eureka-server
+    image: sdt-lab5-eureka-server
+    container_name: sdt-lab5-eureka-server
+    environment:
+      EUREKA_PORT: ${EUREKA_PORT:-8761}
+      EUREKA_HOSTNAME: eureka-server
+      EUREKA_SELF_PRESERVATION: ${EUREKA_SELF_PRESERVATION:-false}
+      EUREKA_EVICTION_INTERVAL: ${EUREKA_EVICTION_INTERVAL:-5000}
+      EUREKA_CACHE_UPDATE_INTERVAL: ${EUREKA_CACHE_UPDATE_INTERVAL:-5000}
+    ports:
+      - "${EUREKA_PORT:-8761}:8761"
+    networks:
+      - sdt-lab5-net
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8761/actuator/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  api-gateway:
+    build: ./api-gateway
+    image: sdt-lab5-api-gateway
+    container_name: sdt-lab5-api-gateway
+    depends_on:
+      eureka-server:
+        condition: service_healthy
+      student-service:
+        condition: service_started
+      professor-service:
+        condition: service_started
+      course-service:
+        condition: service_started
+      grading-service:
+        condition: service_started
+    environment:
+      SERVER_PORT: 8080
+      EUREKA_SERVER_URL: ${EUREKA_SERVER_URL:-http://eureka-server:8761/eureka/}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+    ports:
+      - "${API_GATEWAY_PORT:-8080}:8080"
+    networks:
+      - sdt-lab5-net
+
   student-db:
     image: postgres:16
     container_name: sdt-lab5-student-db
     environment:
-      POSTGRES_DB: studentdb
-      POSTGRES_USER: student
-      POSTGRES_PASSWORD: student
+      POSTGRES_DB: ${STUDENT_DB_NAME:-studentdb}
+      POSTGRES_USER: ${STUDENT_DB_USER:-student}
+      POSTGRES_PASSWORD: ${STUDENT_DB_PASSWORD:-student}
     ports:
-      - "5433:5432"
+      - "${STUDENT_DB_PORT:-5433}:5432"
     networks:
       - sdt-lab5-net
     volumes:
@@ -19,11 +64,11 @@ services:
     image: postgres:16
     container_name: sdt-lab5-professor-db
     environment:
-      POSTGRES_DB: professordb
-      POSTGRES_USER: professor
-      POSTGRES_PASSWORD: professor
+      POSTGRES_DB: ${PROFESSOR_DB_NAME:-professordb}
+      POSTGRES_USER: ${PROFESSOR_DB_USER:-professor}
+      POSTGRES_PASSWORD: ${PROFESSOR_DB_PASSWORD:-professor}
     ports:
-      - "5434:5432"
+      - "${PROFESSOR_DB_PORT:-5434}:5432"
     networks:
       - sdt-lab5-net
     volumes:
@@ -33,11 +78,11 @@ services:
     image: postgres:16
     container_name: sdt-lab5-course-db
     environment:
-      POSTGRES_DB: coursedb
-      POSTGRES_USER: course
-      POSTGRES_PASSWORD: course
+      POSTGRES_DB: ${COURSE_DB_NAME:-coursedb}
+      POSTGRES_USER: ${COURSE_DB_USER:-course}
+      POSTGRES_PASSWORD: ${COURSE_DB_PASSWORD:-course}
     ports:
-      - "5435:5432"
+      - "${COURSE_DB_PORT:-5435}:5432"
     networks:
       - sdt-lab5-net
     volumes:
@@ -47,11 +92,11 @@ services:
     image: postgres:16
     container_name: sdt-lab5-grading-db
     environment:
-      POSTGRES_DB: gradingdb
-      POSTGRES_USER: grading
-      POSTGRES_PASSWORD: grading
+      POSTGRES_DB: ${GRADING_DB_NAME:-gradingdb}
+      POSTGRES_USER: ${GRADING_DB_USER:-grading}
+      POSTGRES_PASSWORD: ${GRADING_DB_PASSWORD:-grading}
     ports:
-      - "5436:5432"
+      - "${GRADING_DB_PORT:-5436}:5432"
     networks:
       - sdt-lab5-net
     volumes:
@@ -62,14 +107,23 @@ services:
     image: sdt-lab5-student-service
     container_name: sdt-lab5-student-service
     depends_on:
-      - student-db
+      eureka-server:
+        condition: service_healthy
+      student-db:
+        condition: service_started
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://student-db:5432/studentdb
-      SPRING_DATASOURCE_USERNAME: student
-      SPRING_DATASOURCE_PASSWORD: student
+      SPRING_DATASOURCE_URL: jdbc:postgresql://student-db:5432/${STUDENT_DB_NAME:-studentdb}
+      SPRING_DATASOURCE_USERNAME: ${STUDENT_DB_USER:-student}
+      SPRING_DATASOURCE_PASSWORD: ${STUDENT_DB_PASSWORD:-student}
       SERVER_PORT: 8080
+      EUREKA_SERVER_URL: ${EUREKA_SERVER_URL:-http://eureka-server:8761/eureka/}
+      COURSE_SERVICE_URL: ${COURSE_SERVICE_URL:-http://course-service:8080}
+      GRADING_SERVICE_URL: ${GRADING_SERVICE_URL:-http://grading-service:8080}
+      JPA_DDL_AUTO: ${JPA_DDL_AUTO:-update}
+      JPA_SHOW_SQL: ${JPA_SHOW_SQL:-true}
+      JPA_FORMAT_SQL: ${JPA_FORMAT_SQL:-true}
     ports:
-      - "8081:8080"
+      - "${STUDENT_SERVICE_PORT:-8081}:8080"
     networks:
       - sdt-lab5-net
 
@@ -78,14 +132,22 @@ services:
     image: sdt-lab5-professor-service
     container_name: sdt-lab5-professor-service
     depends_on:
-      - professor-db
+      eureka-server:
+        condition: service_healthy
+      professor-db:
+        condition: service_started
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://professor-db:5432/professordb
-      SPRING_DATASOURCE_USERNAME: professor
-      SPRING_DATASOURCE_PASSWORD: professor
+      SPRING_DATASOURCE_URL: jdbc:postgresql://professor-db:5432/${PROFESSOR_DB_NAME:-professordb}
+      SPRING_DATASOURCE_USERNAME: ${PROFESSOR_DB_USER:-professor}
+      SPRING_DATASOURCE_PASSWORD: ${PROFESSOR_DB_PASSWORD:-professor}
       SERVER_PORT: 8080
+      EUREKA_SERVER_URL: ${EUREKA_SERVER_URL:-http://eureka-server:8761/eureka/}
+      COURSE_SERVICE_URL: ${COURSE_SERVICE_URL:-http://course-service:8080}
+      JPA_DDL_AUTO: ${JPA_DDL_AUTO:-update}
+      JPA_SHOW_SQL: ${JPA_SHOW_SQL:-true}
+      JPA_FORMAT_SQL: ${JPA_FORMAT_SQL:-true}
     ports:
-      - "8082:8080"
+      - "${PROFESSOR_SERVICE_PORT:-8082}:8080"
     networks:
       - sdt-lab5-net
 
@@ -94,14 +156,21 @@ services:
     image: sdt-lab5-course-service
     container_name: sdt-lab5-course-service
     depends_on:
-      - course-db
+      eureka-server:
+        condition: service_healthy
+      course-db:
+        condition: service_started
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://course-db:5432/coursedb
-      SPRING_DATASOURCE_USERNAME: course
-      SPRING_DATASOURCE_PASSWORD: course
+      SPRING_DATASOURCE_URL: jdbc:postgresql://course-db:5432/${COURSE_DB_NAME:-coursedb}
+      SPRING_DATASOURCE_USERNAME: ${COURSE_DB_USER:-course}
+      SPRING_DATASOURCE_PASSWORD: ${COURSE_DB_PASSWORD:-course}
       SERVER_PORT: 8080
+      EUREKA_SERVER_URL: ${EUREKA_SERVER_URL:-http://eureka-server:8761/eureka/}
+      JPA_DDL_AUTO: ${JPA_DDL_AUTO:-update}
+      JPA_SHOW_SQL: ${JPA_SHOW_SQL:-true}
+      JPA_FORMAT_SQL: ${JPA_FORMAT_SQL:-true}
     ports:
-      - "8083:8080"
+      - "${COURSE_SERVICE_PORT:-8083}:8080"
     networks:
       - sdt-lab5-net
 
@@ -110,14 +179,24 @@ services:
     image: sdt-lab5-grading-service
     container_name: sdt-lab5-grading-service
     depends_on:
-      - grading-db
+      eureka-server:
+        condition: service_healthy
+      grading-db:
+        condition: service_started
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://grading-db:5432/gradingdb
-      SPRING_DATASOURCE_USERNAME: grading
-      SPRING_DATASOURCE_PASSWORD: grading
+      SPRING_DATASOURCE_URL: jdbc:postgresql://grading-db:5432/${GRADING_DB_NAME:-gradingdb}
+      SPRING_DATASOURCE_USERNAME: ${GRADING_DB_USER:-grading}
+      SPRING_DATASOURCE_PASSWORD: ${GRADING_DB_PASSWORD:-grading}
       SERVER_PORT: 8080
+      EUREKA_SERVER_URL: ${EUREKA_SERVER_URL:-http://eureka-server:8761/eureka/}
+      STUDENT_SERVICE_URL: ${STUDENT_SERVICE_URL:-http://student-service:8080}
+      PROFESSOR_SERVICE_URL: ${PROFESSOR_SERVICE_URL:-http://professor-service:8080}
+      COURSE_SERVICE_URL: ${COURSE_SERVICE_URL:-http://course-service:8080}
+      JPA_DDL_AUTO: ${JPA_DDL_AUTO:-update}
+      JPA_SHOW_SQL: ${JPA_SHOW_SQL:-true}
+      JPA_FORMAT_SQL: ${JPA_FORMAT_SQL:-true}
     ports:
-      - "8084:8080"
+      - "${GRADING_SERVICE_PORT:-8084}:8080"
     networks:
       - sdt-lab5-net
 

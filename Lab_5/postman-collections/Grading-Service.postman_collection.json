@@ -1,7 +1,7 @@
 {
 	"info": {
 		"name": "Grading Service",
-		"description": "Grading service API tests (localhost:8084)",
+		"description": "Grading service API tests via API Gateway (localhost:8080)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -25,7 +25,7 @@
 					"host": [
 						"localhost"
 					],
-					"port": "8084",
+					"port": "8080",
 					"path": [
 						"grades"
 					]
@@ -53,7 +53,7 @@
 					"host": [
 						"localhost"
 					],
-					"port": "8084",
+					"port": "8080",
 					"path": [
 						"grades"
 					]
@@ -81,7 +81,7 @@
 					"host": [
 						"localhost"
 					],
-					"port": "8084",
+					"port": "8080",
 					"path": [
 						"grades"
 					]
@@ -100,7 +100,7 @@
 					"host": [
 						"localhost"
 					],
-					"port": "8084",
+					"port": "8080",
 					"path": [
 						"grades"
 					]
@@ -119,7 +119,7 @@
 					"host": [
 						"localhost"
 					],
-					"port": "8084",
+					"port": "8080",
 					"path": [
 						"grades",
 						"1"
@@ -139,7 +139,7 @@
 					"host": [
 						"localhost"
 					],
-					"port": "8084",
+					"port": "8080",
 					"path": [
 						"grades",
 						"student",
@@ -160,7 +160,7 @@
 					"host": [
 						"localhost"
 					],
-					"port": "8084",
+					"port": "8080",
 					"path": [
 						"grades",
 						"student",
@@ -181,7 +181,7 @@
 					"host": [
 						"localhost"
 					],
-					"port": "8084",
+					"port": "8080",
 					"path": [
 						"grades",
 						"professor",
@@ -202,7 +202,7 @@
 					"host": [
 						"localhost"
 					],
-					"port": "8084",
+					"port": "8080",
 					"path": [
 						"grades",
 						"professor",
@@ -223,7 +223,7 @@
 					"host": [
 						"localhost"
 					],
-					"port": "8084",
+					"port": "8080",
 					"path": [
 						"grades",
 						"course",
@@ -244,7 +244,7 @@
 					"host": [
 						"localhost"
 					],
-					"port": "8084",
+					"port": "8080",
 					"path": [
 						"grades",
 						"course",
@@ -274,7 +274,7 @@
 					"host": [
 						"localhost"
 					],
-					"port": "8084",
+					"port": "8080",
 					"path": [
 						"grades",
 						"1"
@@ -294,7 +294,7 @@
 					"host": [
 						"localhost"
 					],
-					"port": "8084",
+					"port": "8080",
 					"path": [
 						"grades",
 						"1"
@@ -314,7 +314,7 @@
 					"host": [
 						"localhost"
 					],
-					"port": "8084",
+					"port": "8080",
 					"path": [
 						"grades",
 						"student",
@@ -335,7 +335,7 @@
 					"host": [
 						"localhost"
 					],
-					"port": "8084",
+					"port": "8080",
 					"path": [
 						"grades",
 						"3"

@@ -1,7 +1,7 @@
 {
 	"info": {
 		"name": "Student Service",
-		"description": "Student service API tests (localhost:8081)",
+		"description": "Student service API tests via API Gateway (localhost:8080)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -28,7 +28,7 @@
 							"host": [
 								"localhost"
 							],
-							"port": "8081",
+							"port": "8080",
 							"path": [
 								"students"
 							]
@@ -56,7 +56,7 @@
 							"host": [
 								"localhost"
 							],
-							"port": "8081",
+							"port": "8080",
 							"path": [
 								"students"
 							]
@@ -75,7 +75,7 @@
 							"host": [
 								"localhost"
 							],
-							"port": "8081",
+							"port": "8080",
 							"path": [
 								"students"
 							]
@@ -94,7 +94,7 @@
 							"host": [
 								"localhost"
 							],
-							"port": "8081",
+							"port": "8080",
 							"path": [
 								"students",
 								"1"
@@ -114,7 +114,7 @@
 							"host": [
 								"localhost"
 							],
-							"port": "8081",
+							"port": "8080",
 							"path": [
 								"students",
 								"email",
@@ -135,7 +135,7 @@
 							"host": [
 								"localhost"
 							],
-							"port": "8081",
+							"port": "8080",
 							"path": [
 								"students"
 							],
@@ -160,7 +160,7 @@
 							"host": [
 								"localhost"
 							],
-							"port": "8081",
+							"port": "8080",
 							"path": [
 								"students"
 							],
@@ -194,7 +194,7 @@
 							"host": [
 								"localhost"
 							],
-							"port": "8081",
+							"port": "8080",
 							"path": [
 								"students",
 								"1"
@@ -214,7 +214,7 @@
 							"host": [
 								"localhost"
 							],
-							"port": "8081",
+							"port": "8080",
 							"path": [
 								"students",
 								"2"
@@ -248,7 +248,7 @@
 							"host": [
 								"localhost"
 							],
-							"port": "8081",
+							"port": "8080",
 							"path": [
 								"enrollments"
 							]
@@ -276,7 +276,7 @@
 							"host": [
 								"localhost"
 							],
-							"port": "8081",
+							"port": "8080",
 							"path": [
 								"enrollments"
 							]
@@ -295,7 +295,7 @@
 							"host": [
 								"localhost"
 							],
-							"port": "8081",
+							"port": "8080",
 							"path": [
 								"enrollments",
 								"student",
@@ -316,7 +316,7 @@
 							"host": [
 								"localhost"
 							],
-							"port": "8081",
+							"port": "8080",
 							"path": [
 								"enrollments",
 								"course",
@@ -337,7 +337,7 @@
 							"host": [
 								"localhost"
 							],
-							"port": "8081",
+							"port": "8080",
 							"path": [
 								"enrollments",
 								"1",
@@ -364,7 +364,7 @@
 							"host": [
 								"localhost"
 							],
-							"port": "8081",
+							"port": "8080",
 							"path": [
 								"enrollments",
 								"2",
@@ -391,7 +391,7 @@
 							"host": [
 								"localhost"
 							],
-							"port": "8081",
+							"port": "8080",
 							"path": [
 								"enrollments",
 								"2"
@@ -416,7 +416,7 @@
 							"host": [
 								"localhost"
 							],
-							"port": "8081",
+							"port": "8080",
 							"path": [
 								"students",
 								"1",

@@ -2,19 +2,72 @@ server:
   port: ${SERVER_PORT:8080}
 
 spring:
+  application:
+    name: professor-service
   datasource:
-    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/professordb}
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5434/professordb}
     username: ${SPRING_DATASOURCE_USERNAME:professor}
     password: ${SPRING_DATASOURCE_PASSWORD:professor}
   jpa:
     hibernate:
-      ddl-auto: update
-    show-sql: true
+      ddl-auto: ${JPA_DDL_AUTO:update}
+    show-sql: ${JPA_SHOW_SQL:true}
     properties:
       hibernate:
-        format_sql: true
+        format_sql: ${JPA_FORMAT_SQL:true}
+
+# Eureka Client Configuration
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_SERVER_URL:http://localhost:8761/eureka/}
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 10
+    lease-expiration-duration-in-seconds: 30
 
 # External service URLs
 services:
   course:
-    url: ${COURSE_SERVICE_URL:http://course-service:8080}
+    url: ${COURSE_SERVICE_URL:http://localhost:8083}
+
+# Feign client configuration with circuit breaker
+spring.cloud.openfeign.circuitbreaker.enabled: true
+
+# Resilience4j Circuit Breaker Configuration
+resilience4j:
+  circuitbreaker:
+    instances:
+      course-service:
+        registerHealthIndicator: true
+        slidingWindowSize: 10
+        minimumNumberOfCalls: 5
+        permittedNumberOfCallsInHalfOpenState: 3
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        waitDurationInOpenState: 5s
+        failureRateThreshold: 50
+        eventConsumerBufferSize: 10
+        recordExceptions:
+          - org.springframework.web.client.HttpServerErrorException
+          - java.io.IOException
+          - java.util.concurrent.TimeoutException
+          - feign.FeignException
+  timelimiter:
+    instances:
+      course-service:
+        timeoutDuration: 3s
+
+# Actuator endpoints
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,circuitbreakers,circuitbreakerevents
+  endpoint:
+    health:
+      show-details: always
+  health:
+    circuitbreakers:
+      enabled: true
