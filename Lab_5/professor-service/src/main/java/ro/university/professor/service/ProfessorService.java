@@ -68,6 +68,14 @@ public class ProfessorService {
     }
 
     @Transactional(readOnly = true)
+    public ProfessorResponseDTO getProfessorByEmail(String email) {
+        log.info("Fetching professor with email: {}", email);
+        Professor professor = professorRepository.findByEmail(email)
+                .orElseThrow(() -> new ProfessorNotFoundException("Professor not found with email: " + email));
+        return mapToResponseDTO(professor);
+    }
+
+    @Transactional(readOnly = true)
     public List<ProfessorResponseDTO> getAllProfessors() {
         log.info("Fetching all professors");
         return professorRepository.findAll().stream()

@@ -20,13 +20,13 @@
 					"raw": "{\n  \"code\": \"CS101\",\n  \"name\": \"Introduction to Computer Science\",\n  \"description\": \"Basic programming and CS concepts\",\n  \"credits\": 4,\n  \"department\": \"Computer Science\",\n  \"semester\": \"Fall 2024\",\n  \"isActive\": true\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8083/courses",
+					"raw": "http://localhost:8080/course-service/courses",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
-					"path": [
+					"path": ["course-service", 
 						"courses"
 					]
 				}
@@ -48,13 +48,13 @@
 					"raw": "{\n  \"code\": \"DB201\",\n  \"name\": \"Database Systems\",\n  \"description\": \"Relational models, SQL and transactions\",\n  \"credits\": 3,\n  \"department\": \"Computer Science\",\n  \"semester\": \"Fall 2024\",\n  \"isActive\": true\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8083/courses",
+					"raw": "http://localhost:8080/course-service/courses",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
-					"path": [
+					"path": ["course-service", 
 						"courses"
 					]
 				}
@@ -76,13 +76,13 @@
 					"raw": "{\n  \"code\": \"WEB301\",\n  \"name\": \"Web Development\",\n  \"description\": \"Modern web technologies and frameworks\",\n  \"credits\": 3,\n  \"department\": \"Computer Science\",\n  \"semester\": \"Spring 2025\",\n  \"isActive\": true\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8083/courses",
+					"raw": "http://localhost:8080/course-service/courses",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
-					"path": [
+					"path": ["course-service", 
 						"courses"
 					]
 				}
@@ -95,13 +95,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8083/courses",
+					"raw": "http://localhost:8080/course-service/courses",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
-					"path": [
+					"path": ["course-service", 
 						"courses"
 					]
 				}
@@ -114,13 +114,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8083/courses/1",
+					"raw": "http://localhost:8080/course-service/courses/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
-					"path": [
+					"path": ["course-service", 
 						"courses",
 						"1"
 					]
@@ -134,13 +134,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8083/courses/department/Computer Science",
+					"raw": "http://localhost:8080/course-service/courses/department/Computer Science",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
-					"path": [
+					"path": ["course-service", 
 						"courses",
 						"department",
 						"Computer Science"
@@ -155,13 +155,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8083/courses/semester/Fall 2024",
+					"raw": "http://localhost:8080/course-service/courses/semester/Fall 2024",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
-					"path": [
+					"path": ["course-service", 
 						"courses",
 						"semester",
 						"Fall 2024"
@@ -176,13 +176,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8083/courses/active",
+					"raw": "http://localhost:8080/course-service/courses/active",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
-					"path": [
+					"path": ["course-service", 
 						"courses",
 						"active"
 					]
@@ -205,13 +205,13 @@
 					"raw": "{\n  \"code\": \"CS101\",\n  \"name\": \"Introduction to Computer Science - Updated\",\n  \"description\": \"Comprehensive introduction to programming and CS\",\n  \"credits\": 4,\n  \"department\": \"Computer Science\",\n  \"semester\": \"Fall 2024\",\n  \"isActive\": true\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8083/courses/1",
+					"raw": "http://localhost:8080/course-service/courses/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
-					"path": [
+					"path": ["course-service", 
 						"courses",
 						"1"
 					]
@@ -225,13 +225,13 @@
 				"method": "PATCH",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8083/courses/1/activate",
+					"raw": "http://localhost:8080/course-service/courses/1/activate",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
-					"path": [
+					"path": ["course-service", 
 						"courses",
 						"1",
 						"activate"
@@ -246,13 +246,13 @@
 				"method": "PATCH",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8083/courses/3/deactivate",
+					"raw": "http://localhost:8080/course-service/courses/3/deactivate",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
-					"path": [
+					"path": ["course-service", 
 						"courses",
 						"3",
 						"deactivate"
@@ -267,13 +267,13 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8083/courses/3",
+					"raw": "http://localhost:8080/course-service/courses/3",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
-					"path": [
+					"path": ["course-service", 
 						"courses",
 						"3"
 					]

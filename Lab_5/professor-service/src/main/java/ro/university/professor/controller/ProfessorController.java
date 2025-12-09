@@ -37,6 +37,24 @@ public class ProfessorController {
         return ResponseEntity.ok(response);
     }
 
+    @GetMapping("/email/{email:.+}")
+    public ResponseEntity<ProfessorResponseDTO> getProfessorByEmail(@PathVariable String email) {
+        ProfessorResponseDTO response = professorService.getProfessorByEmail(email);
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/department/{department}")
+    public ResponseEntity<List<ProfessorResponseDTO>> getProfessorsByDepartment(@PathVariable String department) {
+        List<ProfessorResponseDTO> professors = professorService.getProfessorsByDepartment(department);
+        return ResponseEntity.ok(professors);
+    }
+
+    @GetMapping("/active")
+    public ResponseEntity<List<ProfessorResponseDTO>> getActiveProfessors() {
+        List<ProfessorResponseDTO> professors = professorService.getActiveProfessors();
+        return ResponseEntity.ok(professors);
+    }
+
     @GetMapping
     public ResponseEntity<List<ProfessorResponseDTO>> getAllProfessors(
             @RequestParam(required = false) String department,

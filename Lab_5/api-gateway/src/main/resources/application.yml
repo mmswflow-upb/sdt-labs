@@ -10,50 +10,6 @@ spring:
         locator:
           enabled: true
           lower-case-service-id: true
-      routes:
-        # Student Service Routes
-        - id: student-service
-          uri: lb://student-service
-          predicates:
-            - Path=/students/**,/enrollments/**
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: studentService
-                fallbackUri: forward:/fallback/student-service
-
-        # Professor Service Routes
-        - id: professor-service
-          uri: lb://professor-service
-          predicates:
-            - Path=/professors/**,/course-assignments/**
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: professorService
-                fallbackUri: forward:/fallback/professor-service
-
-        # Course Service Routes
-        - id: course-service
-          uri: lb://course-service
-          predicates:
-            - Path=/courses/**
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: courseService
-                fallbackUri: forward:/fallback/course-service
-
-        # Grading Service Routes
-        - id: grading-service
-          uri: lb://grading-service
-          predicates:
-            - Path=/grades/**
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: gradingService
-                fallbackUri: forward:/fallback/grading-service
 
       # Global CORS configuration
       globalcors:
@@ -69,11 +25,6 @@ spring:
               - OPTIONS
             allowedHeaders: "*"
             maxAge: 3600
-
-      # Default filters applied to all routes
-      default-filters:
-        - AddRequestHeader=X-Gateway-Request, API-Gateway
-        - AddResponseHeader=X-Gateway-Response, API-Gateway
 
 # Eureka Client Configuration
 eureka:

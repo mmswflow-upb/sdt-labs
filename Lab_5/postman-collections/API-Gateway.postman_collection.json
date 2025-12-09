@@ -23,30 +23,16 @@
 					}
 				},
 				{
-					"name": "Gateway Routes",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/actuator/gateway/routes",
-							"protocol": "http",
-							"host": ["localhost"],
-							"port": "8080",
-							"path": ["actuator", "gateway", "routes"]
-						}
-					}
-				},
-				{
 					"name": "Student Service Health",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/health/students",
+							"raw": "http://localhost:8080/student-service/actuator/health",
 							"protocol": "http",
 							"host": ["localhost"],
 							"port": "8080",
-							"path": ["health", "students"]
+							"path": ["student-service", "actuator", "health"]
 						}
 					}
 				},
@@ -56,11 +42,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/health/professors",
+							"raw": "http://localhost:8080/professor-service/actuator/health",
 							"protocol": "http",
 							"host": ["localhost"],
 							"port": "8080",
-							"path": ["health", "professors"]
+							"path": ["professor-service", "actuator", "health"]
 						}
 					}
 				},
@@ -70,11 +56,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/health/courses",
+							"raw": "http://localhost:8080/course-service/actuator/health",
 							"protocol": "http",
 							"host": ["localhost"],
 							"port": "8080",
-							"path": ["health", "courses"]
+							"path": ["course-service", "actuator", "health"]
 						}
 					}
 				},
@@ -84,11 +70,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/health/grading",
+							"raw": "http://localhost:8080/grading-service/actuator/health",
 							"protocol": "http",
 							"host": ["localhost"],
 							"port": "8080",
-							"path": ["health", "grading"]
+							"path": ["grading-service", "actuator", "health"]
 						}
 					}
 				}
@@ -103,11 +89,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/students",
+							"raw": "http://localhost:8080/student-service/students",
 							"protocol": "http",
 							"host": ["localhost"],
 							"port": "8080",
-							"path": ["students"]
+							"path": ["student-service", "students"]
 						}
 					}
 				},
@@ -117,11 +103,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/students/1",
+							"raw": "http://localhost:8080/student-service/students/1",
 							"protocol": "http",
 							"host": ["localhost"],
 							"port": "8080",
-							"path": ["students", "1"]
+							"path": ["student-service", "students", "1"]
 						}
 					}
 				},
@@ -137,14 +123,14 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"John Doe\",\n    \"email\": \"john.doe@university.ro\",\n    \"major\": \"Computer Science\",\n    \"enrollmentDate\": \"2024-09-01\",\n    \"active\": true\n}"
+							"raw": "{\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"email\": \"john.doe@university.ro\",\n    \"studentId\": \"STU002\",\n    \"major\": \"Computer Science\",\n    \"enrollmentDate\": \"2024-09-01\"\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8080/students",
+							"raw": "http://localhost:8080/student-service/students",
 							"protocol": "http",
 							"host": ["localhost"],
 							"port": "8080",
-							"path": ["students"]
+							"path": ["student-service", "students"]
 						}
 					}
 				}
@@ -159,11 +145,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/professors",
+							"raw": "http://localhost:8080/professor-service/professors",
 							"protocol": "http",
 							"host": ["localhost"],
 							"port": "8080",
-							"path": ["professors"]
+							"path": ["professor-service", "professors"]
 						}
 					}
 				},
@@ -173,11 +159,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/professors/1",
+							"raw": "http://localhost:8080/professor-service/professors/1",
 							"protocol": "http",
 							"host": ["localhost"],
 							"port": "8080",
-							"path": ["professors", "1"]
+							"path": ["professor-service", "professors", "1"]
 						}
 					}
 				}
@@ -192,11 +178,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/courses",
+							"raw": "http://localhost:8080/course-service/courses",
 							"protocol": "http",
 							"host": ["localhost"],
 							"port": "8080",
-							"path": ["courses"]
+							"path": ["course-service", "courses"]
 						}
 					}
 				},
@@ -206,11 +192,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/courses/1",
+							"raw": "http://localhost:8080/course-service/courses/1",
 							"protocol": "http",
 							"host": ["localhost"],
 							"port": "8080",
-							"path": ["courses", "1"]
+							"path": ["course-service", "courses", "1"]
 						}
 					}
 				}
@@ -225,11 +211,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/grades",
+							"raw": "http://localhost:8080/grading-service/grades",
 							"protocol": "http",
 							"host": ["localhost"],
 							"port": "8080",
-							"path": ["grades"]
+							"path": ["grading-service", "grades"]
 						}
 					}
 				},
@@ -239,11 +225,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/grades/1",
+							"raw": "http://localhost:8080/grading-service/grades/1",
 							"protocol": "http",
 							"host": ["localhost"],
 							"port": "8080",
-							"path": ["grades", "1"]
+							"path": ["grading-service", "grades", "1"]
 						}
 					}
 				}

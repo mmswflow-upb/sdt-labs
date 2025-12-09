@@ -23,13 +23,13 @@
 							"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"email\": \"john.doe@example.com\",\n  \"professorId\": \"P001\",\n  \"department\": \"Computer Science\",\n  \"specialization\": \"Software Engineering\",\n  \"hireDate\": \"2020-01-15\",\n  \"officeLocation\": \"Building A, Room 301\",\n  \"phoneNumber\": \"+40123456700\",\n  \"isActive\": true\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8082/professors",
+							"raw": "http://localhost:8080/professor-service/professors",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
-							"path": [
+							"path": ["professor-service", 
 								"professors"
 							]
 						}
@@ -51,13 +51,13 @@
 							"raw": "{\n  \"firstName\": \"Mihai\",\n  \"lastName\": \"Ionescu\",\n  \"email\": \"mihai.ionescu@example.com\",\n  \"professorId\": \"P002\",\n  \"department\": \"Computer Science\",\n  \"specialization\": \"Database Systems\",\n  \"hireDate\": \"2019-09-01\",\n  \"officeLocation\": \"Building A, Room 305\",\n  \"phoneNumber\": \"+40123456701\",\n  \"isActive\": true\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8082/professors",
+							"raw": "http://localhost:8080/professor-service/professors",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
-							"path": [
+							"path": ["professor-service", 
 								"professors"
 							]
 						}
@@ -70,13 +70,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8082/professors",
+							"raw": "http://localhost:8080/professor-service/professors",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
-							"path": [
+							"path": ["professor-service", 
 								"professors"
 							]
 						}
@@ -89,13 +89,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8082/professors/1",
+							"raw": "http://localhost:8080/professor-service/professors/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
-							"path": [
+							"path": ["professor-service", 
 								"professors",
 								"1"
 							]
@@ -109,13 +109,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8082/professors/email/john.doe@example.com",
+							"raw": "http://localhost:8080/professor-service/professors/email/john.doe@example.com",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
-							"path": [
+							"path": ["professor-service", 
 								"professors",
 								"email",
 								"john.doe@example.com"
@@ -130,13 +130,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8082/professors/department/Computer Science",
+							"raw": "http://localhost:8080/professor-service/professors/department/Computer Science",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
-							"path": [
+							"path": ["professor-service", 
 								"professors",
 								"department",
 								"Computer Science"
@@ -151,13 +151,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8082/professors/active",
+							"raw": "http://localhost:8080/professor-service/professors/active",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
-							"path": [
+							"path": ["professor-service", 
 								"professors",
 								"active"
 							]
@@ -180,13 +180,13 @@
 							"raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"email\": \"john.doe@example.com\",\n  \"professorId\": \"P001\",\n  \"department\": \"Computer Science\",\n  \"specialization\": \"Software Engineering & AI\",\n  \"hireDate\": \"2020-01-15\",\n  \"officeLocation\": \"Building A, Room 301\",\n  \"phoneNumber\": \"+40123456700\",\n  \"isActive\": true\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8082/professors/1",
+							"raw": "http://localhost:8080/professor-service/professors/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
-							"path": [
+							"path": ["professor-service", 
 								"professors",
 								"1"
 							]
@@ -200,13 +200,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8082/professors/2",
+							"raw": "http://localhost:8080/professor-service/professors/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
-							"path": [
+							"path": ["professor-service", 
 								"professors",
 								"2"
 							]
@@ -234,13 +234,13 @@
 							"raw": "{\n  \"professorId\": 1,\n  \"courseId\": 1\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8082/assignments",
+							"raw": "http://localhost:8080/professor-service/assignments",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
-							"path": [
+							"path": ["professor-service", 
 								"assignments"
 							]
 						}
@@ -262,13 +262,13 @@
 							"raw": "{\n  \"professorId\": 2,\n  \"courseId\": 2\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8082/assignments",
+							"raw": "http://localhost:8080/professor-service/assignments",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
-							"path": [
+							"path": ["professor-service", 
 								"assignments"
 							]
 						}
@@ -281,13 +281,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8082/assignments/professor/1",
+							"raw": "http://localhost:8080/professor-service/assignments/professor/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
-							"path": [
+							"path": ["professor-service", 
 								"assignments",
 								"professor",
 								"1"
@@ -302,13 +302,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8082/assignments/course/1",
+							"raw": "http://localhost:8080/professor-service/assignments/course/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
-							"path": [
+							"path": ["professor-service", 
 								"assignments",
 								"course",
 								"1"
@@ -323,13 +323,13 @@
 						"method": "PATCH",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8082/assignments/1/status?status=COMPLETED",
+							"raw": "http://localhost:8080/professor-service/assignments/1/status?status=COMPLETED",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
-							"path": [
+							"path": ["professor-service", 
 								"assignments",
 								"1",
 								"status"
@@ -350,13 +350,13 @@
 						"method": "PATCH",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8082/assignments/2/status?status=SUSPENDED",
+							"raw": "http://localhost:8080/professor-service/assignments/2/status?status=SUSPENDED",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
-							"path": [
+							"path": ["professor-service", 
 								"assignments",
 								"2",
 								"status"
@@ -377,13 +377,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8082/assignments/2",
+							"raw": "http://localhost:8080/professor-service/assignments/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
-							"path": [
+							"path": ["professor-service", 
 								"assignments",
 								"2"
 							]

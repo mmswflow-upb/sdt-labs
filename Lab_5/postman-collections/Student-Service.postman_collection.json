@@ -23,13 +23,13 @@
 							"raw": "{\n  \"firstName\": \"Mario\",\n  \"lastName\": \"Sakka\",\n  \"email\": \"mario.sakka@example.com\",\n  \"studentId\": \"S001\",\n  \"major\": \"Computer Science\",\n  \"enrollmentDate\": \"2024-09-01\",\n  \"phoneNumber\": \"+40123456789\",\n  \"address\": \"Bucharest, Romania\",\n  \"isActive\": true\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8081/students",
+							"raw": "http://localhost:8080/student-service/students",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
-							"path": [
+							"path": ["student-service", 
 								"students"
 							]
 						}
@@ -51,13 +51,13 @@
 							"raw": "{\n  \"firstName\": \"Ana\",\n  \"lastName\": \"Popescu\",\n  \"email\": \"ana.popescu@example.com\",\n  \"studentId\": \"S002\",\n  \"major\": \"Computer Science\",\n  \"enrollmentDate\": \"2024-09-01\",\n  \"phoneNumber\": \"+40123456788\",\n  \"address\": \"Cluj-Napoca, Romania\",\n  \"isActive\": true\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8081/students",
+							"raw": "http://localhost:8080/student-service/students",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
-							"path": [
+							"path": ["student-service", 
 								"students"
 							]
 						}
@@ -70,13 +70,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/students",
+							"raw": "http://localhost:8080/student-service/students",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
-							"path": [
+							"path": ["student-service", 
 								"students"
 							]
 						}
@@ -89,13 +89,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/students/1",
+							"raw": "http://localhost:8080/student-service/students/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
-							"path": [
+							"path": ["student-service", 
 								"students",
 								"1"
 							]
@@ -109,13 +109,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/students/email/mario.sakka@example.com",
+							"raw": "http://localhost:8080/student-service/students/email/mario.sakka@example.com",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
-							"path": [
+							"path": ["student-service", 
 								"students",
 								"email",
 								"mario.sakka@example.com"
@@ -130,13 +130,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/students?major=Computer Science",
+							"raw": "http://localhost:8080/student-service/students?major=Computer Science",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
-							"path": [
+							"path": ["student-service", 
 								"students"
 							],
 							"query": [
@@ -155,13 +155,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/students?active=true",
+							"raw": "http://localhost:8080/student-service/students?active=true",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
-							"path": [
+							"path": ["student-service", 
 								"students"
 							],
 							"query": [
@@ -189,13 +189,13 @@
 							"raw": "{\n  \"firstName\": \"Mario\",\n  \"lastName\": \"Sakka\",\n  \"email\": \"mario.sakka@example.com\",\n  \"studentId\": \"S001\",\n  \"major\": \"Software Engineering\",\n  \"enrollmentDate\": \"2024-09-01\",\n  \"phoneNumber\": \"+40123456789\",\n  \"address\": \"Bucharest, Romania - Updated\",\n  \"isActive\": true\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8081/students/1",
+							"raw": "http://localhost:8080/student-service/students/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
-							"path": [
+							"path": ["student-service", 
 								"students",
 								"1"
 							]
@@ -209,13 +209,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/students/2",
+							"raw": "http://localhost:8080/student-service/students/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
-							"path": [
+							"path": ["student-service", 
 								"students",
 								"2"
 							]
@@ -243,13 +243,13 @@
 							"raw": "{\n  \"studentId\": 1,\n  \"courseId\": 1\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8081/enrollments",
+							"raw": "http://localhost:8080/student-service/enrollments",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
-							"path": [
+							"path": ["student-service", 
 								"enrollments"
 							]
 						}
@@ -271,13 +271,13 @@
 							"raw": "{\n  \"studentId\": 1,\n  \"courseId\": 2\n}"
 						},
 						"url": {
-							"raw": "http://localhost:8081/enrollments",
+							"raw": "http://localhost:8080/student-service/enrollments",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
-							"path": [
+							"path": ["student-service", 
 								"enrollments"
 							]
 						}
@@ -290,13 +290,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/enrollments/student/1",
+							"raw": "http://localhost:8080/student-service/enrollments/student/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
-							"path": [
+							"path": ["student-service", 
 								"enrollments",
 								"student",
 								"1"
@@ -311,13 +311,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/enrollments/course/1",
+							"raw": "http://localhost:8080/student-service/enrollments/course/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
-							"path": [
+							"path": ["student-service", 
 								"enrollments",
 								"course",
 								"1"
@@ -332,13 +332,13 @@
 						"method": "PATCH",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/enrollments/1/status?status=COMPLETED",
+							"raw": "http://localhost:8080/student-service/enrollments/1/status?status=COMPLETED",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
-							"path": [
+							"path": ["student-service", 
 								"enrollments",
 								"1",
 								"status"
@@ -359,13 +359,13 @@
 						"method": "PATCH",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/enrollments/2/status?status=DROPPED",
+							"raw": "http://localhost:8080/student-service/enrollments/2/status?status=DROPPED",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
-							"path": [
+							"path": ["student-service", 
 								"enrollments",
 								"2",
 								"status"
@@ -386,13 +386,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/enrollments/2",
+							"raw": "http://localhost:8080/student-service/enrollments/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
-							"path": [
+							"path": ["student-service", 
 								"enrollments",
 								"2"
 							]
@@ -411,13 +411,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8081/students/1/grades",
+							"raw": "http://localhost:8080/student-service/students/1/grades",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
-							"path": [
+							"path": ["student-service", 
 								"students",
 								"1",
 								"grades"

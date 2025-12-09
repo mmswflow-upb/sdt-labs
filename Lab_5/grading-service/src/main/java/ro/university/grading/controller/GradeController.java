@@ -31,6 +31,24 @@ public class GradeController {
         return ResponseEntity.ok(response);
     }
 
+    @GetMapping("/student/{studentId}")
+    public ResponseEntity<List<GradeResponseDTO>> getGradesByStudentId(@PathVariable Long studentId) {
+        List<GradeResponseDTO> grades = gradeService.getGradesByStudentId(studentId);
+        return ResponseEntity.ok(grades);
+    }
+
+    @GetMapping("/professor/{professorId}")
+    public ResponseEntity<List<GradeResponseDTO>> getGradesByProfessorId(@PathVariable Long professorId) {
+        List<GradeResponseDTO> grades = gradeService.getGradesByProfessorId(professorId);
+        return ResponseEntity.ok(grades);
+    }
+
+    @GetMapping("/course/{courseId}")
+    public ResponseEntity<List<GradeResponseDTO>> getGradesByCourseId(@PathVariable Long courseId) {
+        List<GradeResponseDTO> grades = gradeService.getGradesByCourseId(courseId);
+        return ResponseEntity.ok(grades);
+    }
+
     @GetMapping
     public ResponseEntity<List<GradeResponseDTO>> getGrades(
             @RequestParam(required = false) Long studentId,

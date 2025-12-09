@@ -37,6 +37,24 @@ public class CourseController {
         return ResponseEntity.ok(response);
     }
 
+    @GetMapping("/department/{department}")
+    public ResponseEntity<List<CourseResponseDTO>> getCoursesByDepartment(@PathVariable String department) {
+        List<CourseResponseDTO> courses = courseService.getCoursesByDepartment(department);
+        return ResponseEntity.ok(courses);
+    }
+
+    @GetMapping("/semester/{semester}")
+    public ResponseEntity<List<CourseResponseDTO>> getCoursesBySemester(@PathVariable String semester) {
+        List<CourseResponseDTO> courses = courseService.getCoursesBySemester(semester);
+        return ResponseEntity.ok(courses);
+    }
+
+    @GetMapping("/active")
+    public ResponseEntity<List<CourseResponseDTO>> getActiveCourses() {
+        List<CourseResponseDTO> courses = courseService.getActiveCourses();
+        return ResponseEntity.ok(courses);
+    }
+
     @GetMapping
     public ResponseEntity<List<CourseResponseDTO>> getAllCourses(
             @RequestParam(required = false) String department,

@@ -20,13 +20,13 @@
 					"raw": "{\n  \"studentId\": 1,\n  \"professorId\": 1,\n  \"courseId\": 1,\n  \"value\": 95.0,\n  \"gradeType\": \"FINAL\",\n  \"comments\": \"Excellent performance throughout the semester\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8084/grades",
+					"raw": "http://localhost:8080/grading-service/grades",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
-					"path": [
+					"path": ["grading-service", 
 						"grades"
 					]
 				}
@@ -48,13 +48,13 @@
 					"raw": "{\n  \"studentId\": 1,\n  \"professorId\": 2,\n  \"courseId\": 2,\n  \"value\": 87.5,\n  \"gradeType\": \"MIDTERM\",\n  \"comments\": \"Good understanding of database concepts\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8084/grades",
+					"raw": "http://localhost:8080/grading-service/grades",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
-					"path": [
+					"path": ["grading-service", 
 						"grades"
 					]
 				}
@@ -76,13 +76,13 @@
 					"raw": "{\n  \"studentId\": 2,\n  \"professorId\": 1,\n  \"courseId\": 1,\n  \"value\": 70.0,\n  \"gradeType\": \"ASSIGNMENT\",\n  \"comments\": \"Needs improvement in practical exercises\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8084/grades",
+					"raw": "http://localhost:8080/grading-service/grades",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
-					"path": [
+					"path": ["grading-service", 
 						"grades"
 					]
 				}
@@ -95,13 +95,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8084/grades",
+					"raw": "http://localhost:8080/grading-service/grades",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
-					"path": [
+					"path": ["grading-service", 
 						"grades"
 					]
 				}
@@ -114,13 +114,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8084/grades/1",
+					"raw": "http://localhost:8080/grading-service/grades/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
-					"path": [
+					"path": ["grading-service", 
 						"grades",
 						"1"
 					]
@@ -134,13 +134,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8084/grades/student/1",
+					"raw": "http://localhost:8080/grading-service/grades/student/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
-					"path": [
+					"path": ["grading-service", 
 						"grades",
 						"student",
 						"1"
@@ -155,13 +155,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8084/grades/student/2",
+					"raw": "http://localhost:8080/grading-service/grades/student/2",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
-					"path": [
+					"path": ["grading-service", 
 						"grades",
 						"student",
 						"2"
@@ -176,13 +176,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8084/grades/professor/1",
+					"raw": "http://localhost:8080/grading-service/grades/professor/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
-					"path": [
+					"path": ["grading-service", 
 						"grades",
 						"professor",
 						"1"
@@ -197,13 +197,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8084/grades/professor/2",
+					"raw": "http://localhost:8080/grading-service/grades/professor/2",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
-					"path": [
+					"path": ["grading-service", 
 						"grades",
 						"professor",
 						"2"
@@ -218,13 +218,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8084/grades/course/1",
+					"raw": "http://localhost:8080/grading-service/grades/course/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
-					"path": [
+					"path": ["grading-service", 
 						"grades",
 						"course",
 						"1"
@@ -239,13 +239,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8084/grades/course/2",
+					"raw": "http://localhost:8080/grading-service/grades/course/2",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
-					"path": [
+					"path": ["grading-service", 
 						"grades",
 						"course",
 						"2"
@@ -269,13 +269,13 @@
 					"raw": "{\n  \"studentId\": 1,\n  \"professorId\": 1,\n  \"courseId\": 1,\n  \"value\": 100.0,\n  \"gradeType\": \"FINAL\",\n  \"comments\": \"Outstanding performance - top of the class\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8084/grades/1",
+					"raw": "http://localhost:8080/grading-service/grades/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
-					"path": [
+					"path": ["grading-service", 
 						"grades",
 						"1"
 					]
@@ -289,13 +289,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8084/grades/1",
+					"raw": "http://localhost:8080/grading-service/grades/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
-					"path": [
+					"path": ["grading-service", 
 						"grades",
 						"1"
 					]
@@ -309,13 +309,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8084/grades/student/1",
+					"raw": "http://localhost:8080/grading-service/grades/student/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
-					"path": [
+					"path": ["grading-service", 
 						"grades",
 						"student",
 						"1"
@@ -330,13 +330,13 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8084/grades/3",
+					"raw": "http://localhost:8080/grading-service/grades/3",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
-					"path": [
+					"path": ["grading-service", 
 						"grades",
 						"3"
 					]
