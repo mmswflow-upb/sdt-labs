@@ -7,19 +7,20 @@ import ro.university.grading.dto.StudentDTO;
 @Component
 @Slf4j
 public class StudentServiceClientFallback implements StudentServiceClient {
-    
+
     @Override
     public StudentDTO getStudentById(Long studentId) {
-        log.warn("Circuit breaker activated for student-service. Returning fallback for student ID: {}", studentId);
-        
-        // Return a fallback DTO with minimal information
+        log.error("CIRCUIT BREAKER ACTIVATED - Student Service is DOWN. Returning fallback for student ID: {}", studentId);
+
+        // Return a fallback DTO with clear indication that the service is unavailable
         StudentDTO fallback = new StudentDTO();
         fallback.setId(studentId);
-        fallback.setFirstName("Student");
-        fallback.setLastName("Unavailable");
-        fallback.setEmail("unavailable@university.ro");
-        fallback.setStudentId("N/A");
-        
+        fallback.setFirstName("[SERVICE DOWN]");
+        fallback.setLastName("Student Unavailable");
+        fallback.setEmail("[UNAVAILABLE]");
+        fallback.setStudentId("[ERROR]");
+        fallback.setServiceStatus("SERVICE_DOWN - Student Service is not responding");
+
         return fallback;
     }
 }

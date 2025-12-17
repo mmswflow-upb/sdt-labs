@@ -15,4 +15,5 @@ public class GradeDTO {
     private Long courseId;
     private Long professorId;
     private Double value;
+    private String serviceStatus;
 }

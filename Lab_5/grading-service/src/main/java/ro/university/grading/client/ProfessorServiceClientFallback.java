@@ -7,19 +7,20 @@ import ro.university.grading.dto.ProfessorDTO;
 @Component
 @Slf4j
 public class ProfessorServiceClientFallback implements ProfessorServiceClient {
-    
+
     @Override
     public ProfessorDTO getProfessorById(Long professorId) {
-        log.warn("Circuit breaker activated for professor-service. Returning fallback for professor ID: {}", professorId);
-        
-        // Return a fallback DTO with minimal information
+        log.error("CIRCUIT BREAKER ACTIVATED - Professor Service is DOWN. Returning fallback for professor ID: {}", professorId);
+
+        // Return a fallback DTO with clear indication that the service is unavailable
         ProfessorDTO fallback = new ProfessorDTO();
         fallback.setId(professorId);
-        fallback.setFirstName("Professor");
-        fallback.setLastName("Unavailable");
-        fallback.setEmail("unavailable@university.ro");
-        fallback.setProfessorId("N/A");
-        
+        fallback.setFirstName("[SERVICE DOWN]");
+        fallback.setLastName("Professor Unavailable");
+        fallback.setEmail("[UNAVAILABLE]");
+        fallback.setProfessorId("[ERROR]");
+        fallback.setServiceStatus("SERVICE_DOWN - Professor Service is not responding");
+
         return fallback;
     }
 }

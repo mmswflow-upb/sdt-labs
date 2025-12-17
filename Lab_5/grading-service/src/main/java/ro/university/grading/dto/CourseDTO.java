@@ -13,4 +13,5 @@ public class CourseDTO {
     private Long id;
     private String code;
     private String name;
+    private String serviceStatus;
 }

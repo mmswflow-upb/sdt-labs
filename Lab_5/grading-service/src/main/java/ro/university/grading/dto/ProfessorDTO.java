@@ -15,4 +15,5 @@ public class ProfessorDTO {
     private String lastName;
     private String email;
     private String professorId;
+    private String serviceStatus;
 }

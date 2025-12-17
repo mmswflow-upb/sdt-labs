@@ -7,20 +7,22 @@ import ro.university.professor.dto.CourseDTO;
 @Component
 @Slf4j
 public class CourseServiceClientFallback implements CourseServiceClient {
-    
+
     @Override
     public CourseDTO getCourseById(Long courseId) {
-        log.warn("Circuit breaker activated for course-service. Returning fallback for course ID: {}", courseId);
-        
-        // Return a fallback DTO with minimal information
+        log.error("CIRCUIT BREAKER ACTIVATED - Course Service is DOWN. Returning fallback for course ID: {}", courseId);
+
+        // Return a fallback DTO with clear indication that the service is unavailable
         CourseDTO fallback = new CourseDTO();
         fallback.setId(courseId);
-        fallback.setName("Course Unavailable");
-        fallback.setCode("N/A");
-        fallback.setCredits(0);
-        fallback.setDepartment("N/A");
-        fallback.setSemester("N/A");
-        
+        fallback.setName("[SERVICE DOWN] Course Unavailable");
+        fallback.setCode("[ERROR]");
+        fallback.setDescription("Course Service is currently unavailable. Please try again later.");
+        fallback.setCredits(-1);
+        fallback.setDepartment("[UNAVAILABLE]");
+        fallback.setSemester("[UNAVAILABLE]");
+        fallback.setServiceStatus("SERVICE_DOWN - Course Service is not responding");
+
         return fallback;
     }
 }

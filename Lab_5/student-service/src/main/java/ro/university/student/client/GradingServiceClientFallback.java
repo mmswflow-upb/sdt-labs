@@ -10,12 +10,13 @@ import java.util.List;
 @Component
 @Slf4j
 public class GradingServiceClientFallback implements GradingServiceClient {
-    
+
     @Override
     public List<GradeDTO> getGradesByStudentId(Long studentId) {
-        log.warn("Circuit breaker activated for grading-service. Returning empty grades for student ID: {}", studentId);
-        
+        log.error("CIRCUIT BREAKER ACTIVATED - Grading Service is DOWN. Cannot fetch grades for student ID: {}. Returning empty grade list.", studentId);
+
         // Return empty list when service is unavailable
+        // Note: Empty list indicates service is down, not that student has no grades
         return new ArrayList<>();
     }
 }

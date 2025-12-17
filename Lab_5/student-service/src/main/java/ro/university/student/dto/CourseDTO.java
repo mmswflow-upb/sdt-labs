@@ -17,4 +17,5 @@ public class CourseDTO {
     private Integer credits;
     private String department;
     private String semester;
+    private String serviceStatus;
 }
